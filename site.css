@@ -1,0 +1,370 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1f2328;
+  --muted: #5f6670;
+  --border: #dde1e6;
+  --accent: #2f6fde;
+  --accent-text: #ffffff;
+  --mock: #1e1f22;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181b;
+    --card: #222428;
+    --text: #e8e9eb;
+    --muted: #a0a5ad;
+    --border: #34373d;
+    --accent: #5b8def;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.55 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+a {
+  color: var(--accent);
+}
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 14px;
+}
+.center {
+  text-align: center;
+}
+
+/* Header */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px max(16px, calc((100vw - 1100px) / 2));
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand img {
+  border-radius: 6px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+}
+nav a:not(.button):hover {
+  color: var(--accent);
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-text) !important;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  text-align: center;
+}
+.button:hover {
+  filter: brightness(1.08);
+}
+.button.small {
+  padding: 6px 14px;
+  font-size: 14px;
+}
+.button.ghost {
+  background: transparent;
+  color: var(--accent) !important;
+}
+.button.soon {
+  background: var(--border);
+  border-color: var(--border);
+  color: var(--muted) !important;
+  cursor: default;
+  filter: none;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+section {
+  padding: 64px 0;
+}
+h2 {
+  font-size: 30px;
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 44px;
+  margin: 0 0 16px;
+}
+.lead {
+  font-size: 18px;
+  color: var(--muted);
+}
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0 12px;
+}
+
+/* App mock-up (drawn, not a screenshot) */
+.mock {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--mock);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+}
+.mock-bar {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #2b2d31;
+}
+.mock-bar span {
+  width: 54px;
+  height: 10px;
+  border-radius: 5px;
+  background: #4a4d55;
+}
+.mock-bar span:last-child {
+  margin-left: auto;
+  background: #5b8def;
+}
+.mock-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  padding: 6px;
+  aspect-ratio: 16 / 9;
+}
+.cell {
+  border-radius: 6px;
+  background: #2b2d31;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cell.big {
+  grid-row: span 2;
+  background: linear-gradient(160deg, #2c3e66, #2b2d31 70%);
+}
+.cell b {
+  color: #e6e6e6;
+  font-size: 14px;
+}
+.cell i {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: #4a4d55;
+}
+.cell i.short {
+  width: 60%;
+}
+.cell.big i {
+  height: 28px;
+  background: #3d5a93;
+}
+.mock-clock {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 12px;
+  background: #16171a;
+  color: #e6e6e6;
+  font-size: 12px;
+}
+
+/* Features */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+.grid3 article,
+.plan,
+.faq details {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.grid3 h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.grid3 p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Pricing */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0 16px;
+  align-items: stretch;
+}
+.plan {
+  display: flex;
+  flex-direction: column;
+}
+.plan.featured {
+  border: 2px solid var(--accent);
+}
+.plan h3 {
+  margin: 0;
+}
+.price {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+.price span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.plan ul {
+  padding-left: 20px;
+  margin: 0 0 20px;
+  flex: 1;
+}
+.plan li {
+  margin: 4px 0;
+}
+
+/* FAQ */
+.faq {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.faq details {
+  margin-top: 10px;
+  padding: 14px 20px;
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.faq details p {
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
+/* Footer */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 32px 16px 48px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Text pages (EULA, privacy) */
+.doc {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 16px 64px;
+}
+.doc h1 {
+  font-size: 32px;
+}
+.doc h2 {
+  text-align: left;
+  font-size: 22px;
+  margin-top: 32px;
+}
+.doc table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+}
+.doc th,
+.doc td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.doc .note {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+/* Phones */
+@media (max-width: 820px) {
+  .hero,
+  .grid3,
+  .plans {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 34px;
+  }
+  nav a:not(.button) {
+    display: none;
+  }
+  section {
+    padding: 44px 0;
+  }
+}
