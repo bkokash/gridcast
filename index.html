@@ -159,7 +159,10 @@
 
     <script>
       // Buy buttons: the Polar checkout links go here once the shop is open.
-      const CHECKOUT = { personal: '', business: '' }
+      const CHECKOUT = {
+        personal: 'https://buy.polar.sh/polar_cl_Snh9ky6FEHYRvSSPQiddtQpSYdczXSRhALVVM0n1iMo',
+        business: 'https://buy.polar.sh/polar_cl_74DGllRG7qCwVMTvtJvPh1kVIAf1tuffIYN1Q02DAqP'
+      }
       document.querySelectorAll('.buy').forEach((a) => {
         const link = CHECKOUT[a.dataset.plan]
         if (link) a.href = link
