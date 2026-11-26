@@ -351,6 +351,136 @@ h2 {
   padding: 10px 14px;
 }
 
+/* Guide (D114) */
+.guide {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+.toc {
+  position: sticky;
+  top: 76px;
+  align-self: start;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  font-size: 14px;
+}
+.toc ol {
+  padding-left: 20px;
+  margin: 8px 0 0;
+}
+.toc li {
+  margin: 4px 0;
+}
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+}
+.toc a:hover {
+  color: var(--accent);
+}
+.guide-body {
+  min-width: 0;
+  max-width: 820px;
+}
+.guide-body h1 {
+  font-size: 36px;
+  margin: 0 0 8px;
+}
+.guide-body section {
+  padding: 28px 0 8px;
+  scroll-margin-top: 64px;
+}
+.guide-body h2 {
+  text-align: left;
+  font-size: 26px;
+}
+.guide-body h3 {
+  font-size: 18px;
+  margin: 22px 0 6px;
+}
+.guide-body figure {
+  margin: 16px 0;
+}
+.guide-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+.guide-body figcaption {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 6px;
+}
+.guide-body table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+  margin: 10px 0;
+}
+.guide-body th,
+.guide-body td {
+  border: 1px solid var(--border);
+  padding: 7px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.guide-body th {
+  background: var(--card);
+}
+.guide-body li {
+  margin: 5px 0;
+}
+.guide-body details {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-top: 8px;
+}
+.guide-body summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.guide-body .note {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+kbd,
+code {
+  font-family: Consolas, ui-monospace, monospace;
+  font-size: 0.88em;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+.pro {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  vertical-align: middle;
+}
+.faq-more {
+  margin-top: 18px;
+  text-align: center;
+}
+
 /* Phones */
 @media (max-width: 820px) {
   .hero,
@@ -361,8 +491,27 @@ h2 {
   .hero h1 {
     font-size: 34px;
   }
-  nav a:not(.button) {
+  nav a:not(.button):not(.keep) {
     display: none;
+  }
+  .guide {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .toc {
+    position: static;
+    max-height: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .guide-body table {
+    display: block;
+    overflow-x: auto;
+  }
+  .guide-body h1 {
+    font-size: 30px;
   }
   section {
     padding: 44px 0;

@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GridCast guide: how everything works</title>
+    <meta
+      name="description"
+      content="How to use GridCast: adding sites, layouts, presets, rotation and schedules, casting to Chromecast and other TVs, unattended screens, licences, and answers to common problems."
+    />
+    <link rel="icon" href="icon.png" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="index.html"><img src="icon.png" alt="" width="28" height="28" /> GridCast</a>
+      <nav>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a class="keep" href="guide.html">Guide</a>
+        <a class="button small" href="https://github.com/bkokash/gridcast-releases/releases/latest">Download</a>
+      </nav>
+    </header>
+
+    <div class="guide">
+      <aside class="toc" aria-label="Contents">
+        <strong>Contents</strong>
+        <ol>
+          <li><a href="#start">Getting started</a></li>
+          <li><a href="#window">The window at a glance</a></li>
+          <li><a href="#sites">Adding and using sites</a></li>
+          <li><a href="#layouts">Layouts</a></li>
+          <li><a href="#presets">Presets (saved setups)</a></li>
+          <li><a href="#rotation">Rotate setups</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#autoscroll">Auto-scroll and auto-refresh</a></li>
+          <li><a href="#bar">Bottom bar and pictures</a></li>
+          <li><a href="#chromecast">Casting to a Chromecast</a></li>
+          <li><a href="#othertv">TVs without Chromecast</a></li>
+          <li><a href="#unattended">Unattended screens</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="#shortcuts">Keyboard shortcuts</a></li>
+          <li><a href="#licence">Plans and licence</a></li>
+          <li><a href="#updates">Updates</a></li>
+          <li><a href="#data">Your data and privacy</a></li>
+          <li><a href="#trouble">Troubleshooting</a></li>
+          <li><a href="#faq">More questions</a></li>
+        </ol>
+      </aside>
+
+      <main class="guide-body">
+        <h1>GridCast guide</h1>
+        <p class="lead">Everything GridCast does and how to use it, step by step.</p>
+        <p class="small muted">Updated for GridCast <span id="guide-version">0.6.0</span>. Features marked <span class="pro">Pro</span> need a Personal or Business licence, or the 14-day trial.</p>
+
+        <!-- ================================================================ -->
+        <section id="start">
+          <h2>1. Getting started</h2>
+          <h3>What you need</h3>
+          <ul>
+            <li>A PC with Windows 10 or 11.</li>
+            <li>A TV, if you want the grid on a TV: one with Chromecast or Google TV built in (or a Chromecast / Android TV box plugged into it), one that supports wireless display (Miracast, as most Samsung, LG and Sony TVs do), or an HDMI cable.</li>
+            <li>For casting: the PC and the TV on the <strong>same network</strong>.</li>
+          </ul>
+
+          <h3>Download and install</h3>
+          <p>On the <a href="https://github.com/bkokash/gridcast-releases/releases/latest">download page</a> there are two files. Pick one:</p>
+          <ul>
+            <li><strong>GridCast-Setup-x.y.z.exe</strong> (recommended): installs GridCast for your Windows user only, without admin rights, and adds Start-menu and desktop shortcuts. It starts in a second or two and updates itself.</li>
+            <li><strong>GridCast.exe</strong> (portable): one file, nothing to install. Copy it anywhere (a USB stick, for example) and run it. It unpacks itself each time, so it takes 10–20 seconds longer to open, and it can't update itself.</li>
+          </ul>
+          <p>GridCast isn't code-signed yet, so the first time Windows may show <em>"Windows protected your PC"</em>. Click <strong>More info</strong>, then <strong>Run anyway</strong>. The first time you cast, Windows may ask whether GridCast may use the network: choose <strong>Allow</strong> for <strong>private networks</strong>.</p>
+
+          <h3>First start</h3>
+          <ol>
+            <li>GridCast opens with three empty panels, each with <strong>+ Add site</strong>.</li>
+            <li>Click <strong>+ Add site</strong> in a panel, type an address such as <code>youtube.com</code>, and press Enter.</li>
+            <li>Fill the other panels the same way. Pick another arrangement with the <strong>Layout</strong> button at the top left.</li>
+            <li>To put the grid on a TV, click <strong>Cast ▾</strong> at the top right and pick the TV (see <a href="#chromecast">Casting</a>).</li>
+          </ol>
+          <p>Every new copy starts with a <strong>14-day Pro trial</strong>: everything works. No account or sign-up is needed. GridCast remembers your sites, layout and settings when you close it, and websites stay signed in.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="window">
+          <h2>2. The window at a glance</h2>
+          <figure>
+            <img src="guide/grid.jpg" alt="GridCast with four sites in the Big left + 3 layout and a bottom bar with a clock" loading="lazy" width="1386" height="868" />
+            <figcaption>Four sites in the "Big left + 3" layout, with the bottom bar on and the rotation counting down.</figcaption>
+          </figure>
+          <p><strong>Top bar, left (what's on screen):</strong></p>
+          <ul>
+            <li><strong>Layout</strong>: a small picture of the current layout. Opens the <a href="#layouts">layout picker</a>, the bottom bar and "Save picture of the grid".</li>
+            <li><strong>Presets ▾</strong>: shows the setup you loaded last (here "Lobby"). Load, save, rename or delete saved setups; <a href="#rotation">Rotate setups</a> and <a href="#schedule">Schedule</a>.</li>
+            <li><strong>Rotation countdown</strong> (only while rotating): time until the next setup. Click it to pause.</li>
+            <li><strong>"1 hidden site"</strong> (only when it applies): sites that don't fit the current layout. They come back with a bigger layout.</li>
+          </ul>
+          <p><strong>Top bar, right (where it goes):</strong></p>
+          <ul>
+            <li><strong>Trial / Free badge</strong>: your plan. Click it for plans and your licence key.</li>
+            <li><strong>Update message</strong> (only when there is a new version).</li>
+            <li><strong>Casting status</strong> and <strong>Stop</strong> (only while casting).</li>
+            <li><strong>Cast ▾</strong>: send the grid to a Chromecast, a TV screen or a wireless display.</li>
+            <li><strong>Present</strong> (corners icon): full-screen on this screen with the bars hidden (F11).</li>
+            <li><strong>?</strong>: keyboard shortcuts. <strong>Gear</strong>: Settings.</li>
+          </ul>
+          <p><strong>Each panel</strong> has its own bar: the grip to drag it, its name, back / forward / reload, the address, open a file, zoom − 100% +, mute, fill the window, and <strong>⋮</strong> for more. In narrow panels some of these move into ⋮. The <strong>blue line</strong> on top of a panel marks the <em>active panel</em>: the one keyboard shortcuts act on.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="sites">
+          <h2>3. Adding and using sites</h2>
+          <h3>What you can type in the address box</h3>
+          <table>
+            <tr><th>You type</th><th>GridCast opens</th></tr>
+            <tr><td><code>youtube.com</code></td><td>https://youtube.com</td></tr>
+            <tr><td><code>https://example.com/page</code></td><td>Exactly that address</td></tr>
+            <tr><td><code>localhost:3000</code>, <code>192.168.1.10:8080</code></td><td>A page on this PC or your local network (http://)</td></tr>
+            <tr><td><code>C:\reports\today.html</code> or <code>\\server\share\board.pdf</code></td><td>A file on the PC or the network (web pages, PDF, pictures, text)</td></tr>
+            <tr><td><code>weather tomorrow</code></td><td>A Google search for those words</td></tr>
+          </table>
+          <p>The <strong>folder button</strong> picks a local file instead of typing its path. Click into the address box (or press <kbd>Ctrl+L</kbd>) to change the address of a panel that already has a site. The list under <strong>+ Add site</strong> shows your recent sites.</p>
+
+          <h3>Why sites that "can't be embedded" work</h3>
+          <p>Each panel is a full browser, not an embedded frame. Sites that refuse to appear inside other pages (YouTube, Google, banking, many dashboards) work normally. Signing in works as in a browser, and you stay signed in after closing GridCast.</p>
+
+          <h3>Panel controls</h3>
+          <ul>
+            <li><strong>Back, forward, reload</strong>: as in a browser.</li>
+            <li><strong>Zoom</strong>: − and + from 25% to 300%; click the percentage to go back to 100%. Each panel has its own zoom, even for the same website.</li>
+            <li><strong>Mute</strong>: the speaker icon. Muted panels are also silent on the TV.</li>
+            <li><strong>Fill the window</strong> (corners icon or <kbd>Ctrl+Shift+F</kbd>): one panel takes the whole window (and the whole TV picture). <kbd>Esc</kbd> or the same button returns to the grid. A video going full-screen does the same.</li>
+            <li><strong>Rename</strong>: click the panel's name (or ⋮ → Rename panel…). Leave it empty to show the page title again.</li>
+            <li><strong>Move or swap</strong>: drag a panel by its grip (six dots) onto another panel to swap them, or onto an empty panel to move it there. The site keeps its zoom, mute, name, session and auto-refresh.</li>
+            <li><strong>Remove</strong>: ⋮ → Remove site.</li>
+          </ul>
+
+          <h3>Logins and "Separate session"</h3>
+          <p>All panels share one set of logins, like tabs in one browser: sign in to a site once and every panel showing that site is signed in. To show <em>two different accounts</em> of the same site (two Gmail inboxes, for example), turn on <strong>⋮ → Separate session</strong> in one panel. That panel gets its own logins; it reloads when you switch. Settings → General → <strong>Clear…</strong> signs every panel out.</p>
+
+          <h3>Pop-ups and new windows</h3>
+          <p>Sign-in pop-ups (for example "Sign in with Google") open as small windows, which usually close by themselves when you're done. Links that would open a new tab open in the same panel instead.</p>
+
+          <h3>When a site can't load</h3>
+          <p>The panel shows what went wrong (for example "Couldn't reach localhost:3000") with a <strong>Retry</strong> button, and tries again by itself every minute. When the site is back (internet or server restored), it appears without you doing anything.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="layouts">
+          <h2>4. Layouts</h2>
+          <figure>
+            <img src="guide/layouts.jpg" alt="The layout picker showing the 4-site layouts, the bottom bar option and Save picture of the grid" loading="lazy" width="1386" height="868" />
+          </figure>
+          <p>Click <strong>Layout</strong> (top left). The tabs <strong>1 · 2 · 3 · 4</strong> choose how many sites; each tab shows its layouts: full, side by side, stacked, big left / right / top / bottom, 2×2, 4 columns, big centre and more (15 in all). It opens on your current layout's tab.</p>
+          <ul>
+            <li><strong>Fewer cells than sites:</strong> nothing is lost. The extra sites are kept hidden (and muted), and the top bar shows "1 hidden site". Choose a bigger layout and they come back.</li>
+            <li><strong>More cells than sites:</strong> the new cells show <strong>+ Add site</strong>.</li>
+            <li>On Free, the 1- and 2-site layouts are available; the 3- and 4-site layouts are <span class="pro">Pro</span>.</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="presets">
+          <h2>5. Presets (saved setups)</h2>
+          <figure>
+            <img src="guide/presets.jpg" alt="The Presets menu with three saved setups, Save current as preset, Rotate setups and Schedule" loading="lazy" width="1386" height="868" />
+          </figure>
+          <p>A preset saves the <strong>layout, the sites, the page each one is on, and each panel's settings</strong> (zoom, mute, name, separate session, auto-scroll, auto-refresh) plus the bottom bar and its message.</p>
+          <ul>
+            <li><strong>Save:</strong> Presets ▾ → <strong>Save current as preset…</strong>, type a name (for example "Lobby"). Using an existing name replaces that preset (GridCast asks first).</li>
+            <li><strong>Load:</strong> click its name. Everything on screen is replaced by the preset. The tick and the button show which one you loaded last.</li>
+            <li><strong>Rename / delete:</strong> the pencil and bin icons.</li>
+            <li>Changes you make after loading are <em>not</em> saved into the preset by themselves: save again with the same name to update it. (Your last screen is always remembered when you close GridCast, separately from presets.)</li>
+            <li>On Free you can keep one preset; more presets are <span class="pro">Pro</span>.</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="rotation">
+          <h2>6. Rotate setups <span class="pro">Pro</span></h2>
+          <figure>
+            <img src="guide/rotation.jpg" alt="The Rotate setups window with three ticked setups and Show each for 30 minutes" loading="lazy" width="1386" height="868" />
+          </figure>
+          <p>Shows your saved setups one after another, so one TV can show more than 4 sites.</p>
+          <ol>
+            <li>Save at least two presets.</li>
+            <li>Presets ▾ → <strong>Rotate setups…</strong></li>
+            <li>Tick <strong>Take turns showing these saved setups</strong>, tick the setups to include, and choose <strong>Show each for</strong> (30 seconds to 30 minutes, the same for all).</li>
+            <li><strong>Save</strong>. If the setup on screen isn't in the list, the first ticked one shows at once.</li>
+          </ol>
+          <p><strong>How it behaves:</strong></p>
+          <ul>
+            <li>Setups show in the order of the Presets menu, then start again.</li>
+            <li>About 15 seconds before each switch, the next setup's sites start loading out of sight, so the TV never shows half-loaded pages.</li>
+            <li>While you're <strong>using GridCast</strong> (clicking, scrolling or typing in it, or with a menu open) the rotation waits; the countdown shows <strong>Waiting</strong>. It carries on after one minute without use. Moving the mouse alone doesn't count.</li>
+            <li>Click the <strong>countdown</strong> in the top bar to pause (it shows <strong>Paused</strong>); click again to carry on at once.</li>
+            <li>The rotation stays on after you close GridCast or restart the PC.</li>
+            <li>Changes you make to a setup while it's showing aren't saved into it; the next time round it shows as saved.</li>
+            <li>To stop: open Rotate setups… again and untick the first box. A schedule can also start and stop it.</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="schedule">
+          <h2>7. Schedule <span class="pro">Pro</span></h2>
+          <figure>
+            <img src="guide/schedule.jpg" alt="The Schedule window: weekdays 8 AM to 6 PM rotation, Saturday 10 AM to 2 PM Departures, every night 10 PM to 7 AM TV picture off" loading="lazy" width="1386" height="868" />
+            <figcaption>Example: rotation during office hours, one setup on Saturday mornings, and a black picture every night.</figcaption>
+          </figure>
+          <p>Changes what's shown at set times of the week. Open Presets ▾ → <strong>Schedule…</strong>, tick <strong>Use this schedule</strong>, and add times with <strong>+ Add a time</strong>. Each time has:</p>
+          <ul>
+            <li><strong>Days</strong>: click the day buttons (M T W T F S S) to select or unselect them.</li>
+            <li><strong>From – to</strong>: a time that ends before it starts runs past midnight (for example 10:00 PM to 7:00 AM).</li>
+            <li><strong>What to show</strong>: one of your saved setups, <strong>Rotation</strong> (your Rotate setups list), or <strong>TV picture off (black)</strong>.</li>
+          </ul>
+          <p><strong>How it behaves:</strong></p>
+          <ul>
+            <li>A time takes effect <strong>when it starts</strong> (and at once when you save the schedule, or start GridCast, during a time).</li>
+            <li><strong>Changes by hand win</strong>: if you load another setup during a time, yours stays until the next time starts.</li>
+            <li><strong>Gaps</strong>: outside all times, whatever the last time showed stays on. For nights, add a "TV picture off" time.</li>
+            <li>A setup time stops the rotation; a rotation time starts it.</li>
+            <li>If two times overlap, the higher one in the list wins.</li>
+            <li>Renaming a setup updates the schedule; deleting one removes its times.</li>
+          </ul>
+          <p><strong>TV picture off:</strong> the PC window, a TV screen and the Chromecast picture all turn black and the sound is muted. Sites keep running, so the picture comes back instantly. The PC's screen may go to sleep, and many TVs switch to standby on a black or idle picture (that depends on the TV). Click the black window to turn the picture back on early; on a TV screen, move the mouse to see the hint, then click.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="autoscroll">
+          <h2>8. Auto-scroll <span class="pro">Pro</span> and auto-refresh</h2>
+          <figure>
+            <img src="guide/panel-menu.jpg" alt="A panel's more menu with Auto-scroll Off, Slow, Medium, Fast and Auto-refresh choices" loading="lazy" width="1386" height="868" />
+          </figure>
+          <h3>Auto-scroll</h3>
+          <p>For long pages on a screen nobody touches (reports, lists, menus). In a panel's <strong>⋮</strong> menu, choose <strong>Auto-scroll: Slow, Medium or Fast</strong> (about 20, 40 or 80 pixels a second).</p>
+          <ul>
+            <li>The page waits 5 seconds at the top, scrolls down slowly, waits 5 seconds at the bottom, jumps back to the top, and starts again.</li>
+            <li>Pages that scroll inside a box (many dashboards and web apps) scroll that box.</li>
+            <li>Scrolling, clicking or typing in that page pauses it for one minute.</li>
+            <li>It's saved with the panel, so presets keep it. It starts again on every new page in that panel.</li>
+            <li>With the rotation, the switch happens on time even if a page hasn't reached the bottom.</li>
+          </ul>
+          <h3>Auto-refresh</h3>
+          <p><strong>⋮ → Auto-refresh</strong> reloads the panel every 1, 5, 15 or 30 minutes, or a custom number of minutes (up to 24 hours). Use it for pages that don't update by themselves.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="bar">
+          <h2>9. Bottom bar and pictures</h2>
+          <h3>Bottom bar with clock</h3>
+          <p>In the <strong>Layout</strong> menu, tick <strong>Bottom bar with clock</strong> and, if you like, type a message (up to 200 characters). A thin bar along the bottom shows the date and time on the right and your message on the left (scrolling if it's long). It shows on the PC, in Present mode, on TV screens and on the Chromecast picture. It's saved with each preset, so each setup can have its own message.</p>
+          <h3>Pictures (screenshots)</h3>
+          <ul>
+            <li><strong>One site:</strong> ⋮ → <strong>Save picture</strong>.</li>
+            <li><strong>The whole grid:</strong> Layout → <strong>Save picture of the grid</strong>, or <kbd>Ctrl+Shift+S</kbd>. It includes all panels and the bottom bar as on screen.</li>
+            <li>Pictures are saved as PNG files in <strong>Pictures\GridCast</strong>, named with the date, time and site. A message in the top bar offers <strong>Open folder</strong>.</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="chromecast">
+          <h2>10. Casting to a Chromecast, Google TV or Android TV</h2>
+          <figure>
+            <img src="guide/cast-menu.jpg" alt="The Cast menu: Chromecast section, screens, and Wireless display (Miracast)" loading="lazy" width="1386" height="868" />
+            <figcaption>The Cast menu. Chromecasts on your network appear at the top (none were on when this was taken).</figcaption>
+          </figure>
+          <ol>
+            <li>Turn the TV on and make sure it's on the <strong>same network</strong> as the PC.</li>
+            <li>Click <strong>Cast ▾</strong> and pick the TV under "Chromecast / Google TV".</li>
+            <li>After about 15 seconds the top bar shows <strong>Casting to …</strong> and the TV shows the grid full-screen, without toolbars or menus.</li>
+            <li>Use GridCast on the PC as usual; changes appear on the TV within a moment.</li>
+            <li><strong>Stop</strong> in the top bar ends casting and the TV goes back to its home screen. Closing GridCast also stops it.</li>
+          </ol>
+          <h3>Good to know</h3>
+          <ul>
+            <li><strong>The PC view changes while casting:</strong> the grid takes the TV's shape (dark strips at the sides) and the panels zoom out, so each website lays itself out for its full size on the TV. Text on the PC looks smaller until you stop.</li>
+            <li><strong>Sound:</strong> all unmuted panels are heard on the TV. Mute a panel to keep it silent there.</li>
+            <li><strong>Keep GridCast open</strong>: it can be behind other windows, but not minimised. The picture comes from it.</li>
+            <li><strong>PC locked</strong> (Win+L): Windows doesn't allow capturing a locked screen, so the TV keeps the last picture; it goes live again a couple of seconds after you unlock.</li>
+            <li><strong>Sleep:</strong> while casting on a plugged-in PC, GridCast keeps it awake (the screen may still turn off). On battery, Windows' normal sleep settings apply.</li>
+            <li><strong>Connection dropped</strong> (Wi-Fi hiccup, TV restarted): GridCast reconnects by itself for up to 2 minutes ("Reconnecting…"). If you stop it with the TV's remote, it stays stopped.</li>
+            <li><strong>Two PCs, one TV:</strong> the TV shows the PC that cast to it last. The other one stops and says "Another device took over". Cast again from it to take the TV back.</li>
+          </ul>
+          <h3>Casting settings</h3>
+          <figure>
+            <img src="guide/settings-casting.jpg" alt="Settings, Casting tab: Chromecast quality, TV text size, TV edge margin" loading="lazy" width="1386" height="868" />
+          </figure>
+          <ul>
+            <li><strong>Chromecast quality:</strong> <em>Auto</em> (adapts to your Wi-Fi, stays sharp, 1080p) suits most cases; <em>High</em> for videos on a strong network; <em>Data saver</em> (720p) for weak Wi-Fi.</li>
+            <li><strong>TV text size:</strong> <em>Normal</em> looks like a normal browser on the TV; <em>Large</em> and <em>Larger</em> make text 25% and 50% bigger for viewing from across a room. Each panel's own zoom still applies on top.</li>
+            <li><strong>TV edge margin:</strong> for TVs that cut off the edges of the picture (see <a href="#trouble">Troubleshooting</a>).</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="othertv">
+          <h2>11. TVs without Chromecast: wireless display, HDMI, Present</h2>
+          <h3>Wireless display (Miracast), for example Samsung TVs</h3>
+          <ol>
+            <li>Cast ▾ → <strong>Wireless display (Miracast)…</strong>. Windows' Cast panel opens (the same as <kbd>Win+K</kbd>).</li>
+            <li>Pick the TV, and accept on the TV if it asks.</li>
+            <li>GridCast does the rest: it switches Windows to <em>Extend</em> if needed and shows the grid full-screen on the TV with the bars hidden. It watches for the TV for 3 minutes.</li>
+          </ol>
+          <h3>HDMI cable or an extended screen</h3>
+          <p>Connect the TV, then Cast ▾ → pick it under <strong>Show full-screen on a screen</strong>.</p>
+          <h3>On the TV screen</h3>
+          <ul>
+            <li>The bars are hidden. Move the mouse to the <strong>top edge</strong> of the TV to bring them back; they hide again about 2 seconds after you move away.</li>
+            <li><kbd>Esc</kbd> or Cast ▾ → <strong>This PC</strong> returns GridCast to a normal window. If the TV disconnects, GridCast comes back to your screen by itself.</li>
+            <li>The PC's screen and the TV stay on while GridCast is shown there.</li>
+          </ul>
+          <h3>Present mode</h3>
+          <p>The <strong>Present</strong> button (or <kbd>F11</kbd>) fills this screen with the grid, bars hidden. Useful when the PC itself is connected to a big screen, or when you mirror the PC to a TV some other way. <kbd>Esc</kbd> leaves it.</p>
+          <p class="note">A VPN (especially one with a "kill switch") can block wireless displays: disconnect it if the TV won't connect. As a last resort, Chrome's ⋮ → Cast → Cast screen can mirror the whole PC to a Google TV; then press Present in GridCast.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="unattended">
+          <h2>12. Unattended screens (shops, offices, lobbies)</h2>
+          <ul>
+            <li><strong>Start with Windows:</strong> Settings → General → <strong>Start GridCast with Windows</strong> (off by default; works in the installed and portable versions).</li>
+            <li><strong>Carries on after a restart or power cut:</strong> GridCast opens your last screen and, if it was casting or showing on a TV screen when it closed, carries on with that. It waits up to 3 minutes for a TV that starts more slowly than the PC. It doesn't, if you had stopped casting yourself.</li>
+            <li><strong>Rotation and schedules</strong> carry on too.</li>
+            <li><strong>Sites recover by themselves:</strong> a page that crashes reloads after a second; a page frozen for 30 seconds is reloaded; a page that couldn't load retries every minute.</li>
+            <li><strong>Screen stays on</strong> in Present mode and on a TV screen; the PC doesn't sleep while casting on mains power.</li>
+            <li><strong>Only one GridCast runs at a time</strong>: starting it again brings the open window to the front.</li>
+          </ul>
+          <p class="note">Tip for a dedicated PC: also set Windows to sign in automatically and to install updates outside opening hours, so a Windows restart doesn't leave the TV on the sign-in screen.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="settings">
+          <h2>13. Settings</h2>
+          <figure>
+            <img src="guide/settings-general.jpg" alt="Settings, General tab: theme, start with Windows, logins and site data, recent sites" loading="lazy" width="1386" height="868" />
+          </figure>
+          <ul>
+            <li><strong>General:</strong> <em>Theme</em> (System, Light or Dark; websites with their own dark mode follow it), <em>Start GridCast with Windows</em>, <em>Clear logins and site data</em> (signs every panel out; can't be undone), <em>Clear recent sites</em>.</li>
+            <li><strong>Casting:</strong> quality, TV text size, TV edge margin (see <a href="#chromecast">Casting</a>).</li>
+            <li><strong>Licence:</strong> your plan, buy, enter or remove a key (see <a href="#licence">Plans and licence</a>).</li>
+            <li><strong>About:</strong> version, <em>Check for updates</em>, the folder where GridCast keeps its data, and the open-source licences.</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="shortcuts">
+          <h2>14. Keyboard shortcuts</h2>
+          <p>They work while GridCast is the active window, also when a website has the keyboard. "Active panel" is the one you last clicked or chose with Ctrl+1–4 (blue line on top). The <strong>?</strong> button shows this list too.</p>
+          <table>
+            <tr><th>Keys</th><th>What it does</th></tr>
+            <tr><td><kbd>Ctrl+1</kbd> – <kbd>Ctrl+4</kbd></td><td>Go to panel 1–4</td></tr>
+            <tr><td><kbd>Ctrl+R</kbd> / <kbd>F5</kbd></td><td>Reload the active panel</td></tr>
+            <tr><td><kbd>Ctrl+L</kbd></td><td>Edit the active panel's address</td></tr>
+            <tr><td><kbd>Ctrl+Shift+F</kbd></td><td>Active panel fills the window / back to the grid</td></tr>
+            <tr><td><kbd>Ctrl+Shift+S</kbd></td><td>Save a picture of the grid</td></tr>
+            <tr><td><kbd>F11</kbd></td><td>Present mode on / off</td></tr>
+            <tr><td><kbd>Esc</kbd></td><td>Leave fill-window, Present or the TV screen</td></tr>
+            <tr><td><kbd>Ctrl+M</kbd></td><td>Mute / unmute the active panel</td></tr>
+            <tr><td><kbd>Ctrl +</kbd> / <kbd>Ctrl −</kbd> / <kbd>Ctrl+0</kbd></td><td>Zoom in / out / 100%</td></tr>
+          </table>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="licence">
+          <h2>15. Plans and licence</h2>
+          <figure>
+            <img src="guide/settings-licence.jpg" alt="Settings, Licence tab during the trial: Personal and Business plans and the licence key box" loading="lazy" width="1386" height="868" />
+          </figure>
+          <table>
+            <tr><th></th><th>Free</th><th>Personal ($29 one-time)</th><th>Business ($79 one-time per PC)</th></tr>
+            <tr><td>Panels</td><td>Up to 2</td><td>Up to 4, all 15 layouts</td><td>Up to 4, all 15 layouts</td></tr>
+            <tr><td>Presets</td><td>1</td><td>Unlimited</td><td>Unlimited</td></tr>
+            <tr><td>Rotation, schedules, auto-scroll</td><td>–</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>Mark on the TV</td><td>"GridCast Free"</td><td>None</td><td>None</td></tr>
+            <tr><td>Use</td><td>Any</td><td>2 home PCs, non-commercial</td><td>Work, shops, offices; one licence per PC</td></tr>
+            <tr><td>Updates</td><td>Yes</td><td>All 1.x updates</td><td>All 1.x updates</td></tr>
+          </table>
+          <ul>
+            <li><strong>Trial:</strong> every copy has all Pro features for 14 days from its first start. The top bar shows the days left. After that, GridCast keeps working as Free; nothing is deleted (extra presets and sites wait until you upgrade).</li>
+            <li><strong>Buy:</strong> Settings → Licence → <strong>Buy</strong> (or the badge in the top bar, or the <a href="index.html#pricing">website</a>). Payment is handled by Polar. Your key arrives by email.</li>
+            <li><strong>Activate:</strong> paste the key in Settings → Licence and click <strong>Activate</strong>. It needs the internet once. After that GridCast checks the key about once a month and keeps working offline for up to 30 days.</li>
+            <li><strong>Move to another PC:</strong> Settings → Licence → <strong>Remove from this PC</strong>, then activate on the new PC.</li>
+            <li><strong>Refunds:</strong> full refund within 14 days, no questions asked. A refunded key stops working.</li>
+            <li><strong>5 or more PCs?</strong> <a href="mailto:bkokash@outlook.com?subject=GridCast%20Business%20volume">Contact us</a> for a volume price.</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="updates">
+          <h2>16. Updates</h2>
+          <ul>
+            <li>The installed GridCast checks for a new version when it starts and every 6 hours. You can also check in Settings → About → <strong>Check for updates</strong>.</li>
+            <li>When there's one, the top bar says <strong>"GridCast x.y is available · Download"</strong>. Nothing downloads until you click. Then <strong>Restart</strong> finishes the update, or it installs the next time GridCast closes.</li>
+            <li>The portable GridCast.exe can't update itself: its <strong>Download</strong> button opens the download page.</li>
+            <li>Your sites, presets, settings and licence are kept.</li>
+          </ul>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="data">
+          <h2>17. Your data and privacy</h2>
+          <ul>
+            <li>GridCast has no account and collects no usage data. Your sites, presets and settings stay on your PC in <code>%APPDATA%\GridCast</code> (Settings → About opens the folder). Website logins are stored there too, like a browser's.</li>
+            <li>The internet is used for the websites you show, for activating and re-checking your licence (Polar), and for update checks (GitHub).</li>
+            <li>Casting goes straight from your PC to the TV on your local network.</li>
+            <li>Websites in your panels can't see your PC's local network address.</li>
+            <li>Uninstall: Windows Settings → Apps → GridCast. To remove your data too, delete the <code>%APPDATA%\GridCast</code> folder.</li>
+          </ul>
+          <p>Details: <a href="privacy.html">privacy</a> and <a href="eula.html">licence terms</a>.</p>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="trouble">
+          <h2>18. Troubleshooting</h2>
+          <details>
+            <summary>My TV isn't listed under Chromecast</summary>
+            <ul>
+              <li>Check the TV is on and on the same Wi-Fi or network as the PC (not a guest network).</li>
+              <li>If Windows asked whether GridCast may use the network, it needs <strong>Allow</strong> for private networks. If you clicked Cancel: Windows Security → Firewall → Allow an app through firewall → GridCast → Private.</li>
+              <li>Set your Wi-Fi to a <em>private</em> network in Windows Settings → Network.</li>
+              <li>Some office and hotel networks block devices from seeing each other; use HDMI or wireless display there.</li>
+              <li>Close and reopen the Cast menu: it searches again each time.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>The edges of the picture are cut off on the TV</summary>
+            <p>Many TVs enlarge the picture slightly ("overscan"). Best fix, in the TV's picture settings: <em>Just Scan</em>, <em>Screen Fit</em>, <em>Fit to Screen</em> or <em>Original</em> (on a Mi Box or Android TV box: Settings → Display → Screen position). If your TV has no such option, use GridCast's Settings → Casting → <strong>TV edge margin</strong> (2.5% or 5%).</p>
+          </details>
+          <details>
+            <summary>Text is too small on the TV</summary>
+            <p>Settings → Casting → <strong>TV text size</strong> → Large or Larger, or zoom in the panel itself with +.</p>
+          </details>
+          <details>
+            <summary>The TV picture is blurry, slow or stutters</summary>
+            <p>Try Settings → Casting → Chromecast quality → <em>Data saver</em>, move the router closer, or use a 5 GHz network. Fewer moving videos at once also helps. A wired network on the PC helps a lot.</p>
+          </details>
+          <details>
+            <summary>No sound on the TV</summary>
+            <p>Check the panels aren't muted (speaker icon) and the TV's own volume. Hidden sites (from a smaller layout) are always muted.</p>
+          </details>
+          <details>
+            <summary>The TV shows a still picture</summary>
+            <p>The PC is probably locked (Win+L): Windows doesn't allow capturing a locked screen. It goes live again a couple of seconds after unlocking. For a screen that runs all day, don't let the PC lock (Windows Settings → Accounts → Sign-in options).</p>
+          </details>
+          <details>
+            <summary>Casting stopped by itself</summary>
+            <p>The top bar says why. "Another device took over": another PC cast to the same TV. If the network dropped, GridCast tries again for 2 minutes. If the PC went to sleep on battery, plug it in.</p>
+          </details>
+          <details>
+            <summary>The TV went black</summary>
+            <p>Probably a schedule time with "TV picture off". Click the GridCast window (or move the mouse on the TV screen and click) to turn it back on, or change the schedule in Presets ▾ → Schedule…</p>
+          </details>
+          <details>
+            <summary>Wireless display (Miracast) doesn't connect</summary>
+            <ul>
+              <li>Disconnect any VPN on the PC and try again.</li>
+              <li>Make sure the TV's screen mirroring / wireless display is turned on (on Samsung it's usually on; on some TVs it's an input called "Screen Mirroring").</li>
+              <li>Try <kbd>Win+K</kbd> directly: if Windows can't connect either, it's a Windows or TV setting, not GridCast.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>A site shows an error, or keeps loading</summary>
+            <p>Check the address and your internet. GridCast retries every minute by itself; Retry tries at once. For sites on your network (localhost, 192.168…), check the device or server is on.</p>
+          </details>
+          <details>
+            <summary>A site keeps signing me out, or shows the wrong account</summary>
+            <p>All panels share logins: signing out in one panel signs out the others on the same site. Use ⋮ → <strong>Separate session</strong> for a panel that needs a different account.</p>
+          </details>
+          <details>
+            <summary>The rotation isn't switching</summary>
+            <p>Look at the countdown: <em>Waiting</em> means GridCast is in use (it carries on a minute after your last click); <em>Paused</em> means you paused it (click it). It needs at least 2 ticked setups. During a schedule time showing one setup, the rotation is off until the next rotation time.</p>
+          </details>
+          <details>
+            <summary>Auto-scroll doesn't move</summary>
+            <p>It waits 5 seconds at the top first, and stops for a minute after you scroll or click in that page. Pages too short to scroll don't move. Auto-scroll is Pro.</p>
+          </details>
+          <details>
+            <summary>"Windows protected your PC" when starting GridCast</summary>
+            <p>GridCast isn't code-signed yet. Click <strong>More info</strong> → <strong>Run anyway</strong>.</p>
+          </details>
+          <details>
+            <summary>My settings were reset</summary>
+            <p>If GridCast's settings file is damaged (for example by a power cut while saving), GridCast starts fresh and keeps the old file as <code>gridcast.json.broken</code> in <code>%APPDATA%\GridCast</code>.</p>
+          </details>
+          <details>
+            <summary>Licence key not accepted</summary>
+            <p>Copy the whole key from the email, with no spaces. Check the internet is on. A key that was refunded, or is already on its maximum number of PCs, is refused: remove it from an old PC first (Settings → Licence → Remove from this PC), or contact us.</p>
+          </details>
+        </section>
+
+        <!-- ================================================================ -->
+        <section id="faq">
+          <h2>19. More questions</h2>
+          <details>
+            <summary>Can I show more than 4 sites?</summary>
+            <p>Up to 4 at once. With <a href="#rotation">Rotate setups</a>, a TV can show any number of sites, 4 at a time.</p>
+          </details>
+          <details>
+            <summary>Can I cast to two TVs at once?</summary>
+            <p>Not yet: one TV per PC at a time (Chromecast, or one TV screen).</p>
+          </details>
+          <details>
+            <summary>Do I need to keep the PC on?</summary>
+            <p>Yes. The PC runs the websites and sends the picture; the TV only shows it.</p>
+          </details>
+          <details>
+            <summary>Can I use the PC while it's casting?</summary>
+            <p>Yes. GridCast can be behind other windows (not minimised). If the PC is locked, the TV keeps the last picture.</p>
+          </details>
+          <details>
+            <summary>Does it work with Netflix and other paid streaming services?</summary>
+            <p>Usually not: services with copy protection (Netflix, Disney+ and similar) may refuse to play, or show black on the TV. Ordinary videos (YouTube, news sites, your own) work.</p>
+          </details>
+          <details>
+            <summary>Does it work without the internet?</summary>
+            <p>Local pages, files and casting work on your network without internet. The licence needs the internet once to activate, then once a month (30 days' grace).</p>
+          </details>
+          <details>
+            <summary>Can two PCs use the same TV?</summary>
+            <p>Yes, but not at the same time: the TV shows whichever cast last.</p>
+          </details>
+          <details>
+            <summary>Can I run GridCast twice on one PC?</summary>
+            <p>No, one copy at a time (two would overwrite each other's settings and logins). Starting it again brings the open window to the front.</p>
+          </details>
+          <details>
+            <summary>Does it work on Mac, Linux, phones or tablets?</summary>
+            <p>No, Windows 10 and 11 only.</p>
+          </details>
+          <details>
+            <summary>Is my licence valid for version 2?</summary>
+            <p>Personal and Business include all 1.x updates.</p>
+          </details>
+          <details>
+            <summary>How do I get help?</summary>
+            <p>Email <a href="mailto:bkokash@outlook.com?subject=GridCast%20help">bkokash@outlook.com</a> with your GridCast version (Settings → About) and what you see.</p>
+          </details>
+        </section>
+      </main>
+    </div>
+
+    <footer class="foot">
+      <span>© 2026 GridCast</span>
+      <a href="guide.html">Guide</a>
+      <a href="eula.html">Licence terms (EULA)</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/bkokash/gridcast-releases/releases">All downloads</a>
+    </footer>
+  </body>
+</html>
