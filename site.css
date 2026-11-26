@@ -354,7 +354,7 @@ h2 {
 /* Guide (D114) */
 .guide {
   display: grid;
-  grid-template-columns: 230px 1fr;
+  grid-template-columns: 230px minmax(0, 1fr);
   gap: 40px;
   max-width: 1100px;
   margin: 0 auto;
@@ -385,6 +385,44 @@ h2 {
 .guide-body {
   min-width: 0;
   max-width: 820px;
+  overflow-wrap: break-word;
+}
+.guide-body code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.guide-plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 12px 0 8px;
+}
+.guide-plans article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.guide-plans article.featured {
+  border: 2px solid var(--accent);
+}
+.guide-plans article h3 {
+  margin: 0;
+}
+.plan-price {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 4px 0 8px;
+}
+.plan-price span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.guide-plans ul {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 15px;
 }
 .guide-body h1 {
   font-size: 36px;
@@ -495,8 +533,11 @@ code {
     display: none;
   }
   .guide {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
+  }
+  .guide-plans {
+    grid-template-columns: minmax(0, 1fr);
   }
   .toc {
     position: static;
